@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Solve Your Problem Here</h2>
+
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Linear Equation</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <!-- ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+                        <div class="panel-group" id="accordion1">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#Linear1">Linear
+                                            Equation ==> ax + by = c (2 Equation)</a>
+                                    </h4>
+                                </div>
+                                <div id="Linear1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+
+                                        <form action="/res" method="POST">
+                                            <input type="text" value="1" name="main_id" hidden>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="number" name="a_value"
+                                                            id="a_value"><label>x</label>
+                                                        + <input type="number" id="b_value"
+                                                            name="b_value"><label>y</label>
+                                                        = <input type="number" name="c_value"><label>z</label>
+                                                    </div>
+
+                                                    <br>
+                                                    <br>
+                                                    <div class="col">
+                                                        <input type="number" name="a1" id="a1"><label>x</label>
+                                                        + <input type="number" name="b1"><label>y</label>
+                                                        = <input type="number" name="c1"><label>z</label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <button type="submit" class="btn btn-primary float">Solve</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#Linear2">Linear
+                                            Equation ==> ax + b y+ cz = d (3 Equation)</a>
+                                    </h4>
+                                </div>
+                                <div id="Linear2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+
+                                        <form action="/res" method="POST">
+                                            <input type="text" value="2" name="main_id" hidden>
+                                            <div class="container">
+                                                <div class="row">
+
+
+                                                    <br>
+                                                    <div class="col">
+                                                        <input type="number" name="a1" id="a1">
+                                                        <label>
+                                                            x
+                                                        </label>
+                                                        + <input type="number" name="b1">
+                                                        <label>
+                                                            y
+                                                        </label> +
+                                                        <input type="number" name="c1">
+                                                        <label>
+                                                            z
+                                                        </label>
+                                                        =
+                                                        <input type="number" name="d1">
+                                                        <label>
+                                                            z
+                                                        </label>
+                                                    </div>
+
+                                                    <br>
+                                                    <div class="col">
+                                                        <input type="number" name="a2" id="a2">
+                                                        <label>
+                                                            x
+                                                        </label>
+                                                        + <input type="number" name="b2">
+                                                        <label>
+                                                            y
+                                                        </label> +
+                                                        <input type="number" name="c2">
+                                                        <label>
+                                                            z
+                                                        </label>
+                                                        =
+                                                        <input type="number" name="d2">
+                                                        <label>
+                                                            z
+                                                        </label>
+                                                    </div>
+                                                    <br>
+                                                    <div class="col">
+                                                        <input type="number" name="a3" id="a3">
+                                                        <label>
+                                                            x
+                                                        </label>
+                                                        + <input type="number" name="b3">
+                                                        <label>
+                                                            y
+                                                        </label> +
+                                                        <input type="number" name="c3">
+                                                        <label>
+                                                            z
+                                                        </label>
+                                                        =
+                                                        <input type="number" name="d3">
+                                                        <label>
+                                                            z
+                                                        </label>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+
+                                            <button type="submit" class="btn btn-primary float">Solve</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- sdssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Quadratic Equation == >
+                            ax<sup>2</sup> + bx + c = 0</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form action="/res" method="POST">
+                            <input type="text" value="3" name="main_id" hidden>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="number" name="a" id="a"><label>x<sup>2</sup></label>
+                                        + <input type="number" id="b" name="b"><label>x</label>
+                                        + <input type="number" name="c"><label>c</label>
+
+                                        = <label>0</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary float">Solve</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Matrix Problems</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+                        <!-- ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+                        <div class="panel-group" id="accordion1">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#Mat1">Matrix
+                                            Addition</a>
+                                    </h4>
+                                </div>
+                                <div id="Mat1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+
+                                        <form action="/mat_draw" method="POST">
+                                            <input type="number" name="r">
+                                            <input type="number" name="c">
+
+                                            <button type="submit" class="btn btn-primary float">Solve</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion1" href="#Mat2">Matrix
+                                            Multiplication</a>
+                                    </h4>
+                                </div>
+                                <div id="Mat2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+
+
+                                        <div class="container">
+                                            <div class="row">
+
+                                                <div class="col-lg-2">
+                                                    <form action="/res" method="POST">
+                                                        <input type="text" value="2" name="main_id" hidden>
+
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th><input type="text" value="2"></th>
+                                                                    <th><input type="text" value="2"></th>
+                                                                    <th><input type="text" value="2"></th>
+                                                                    <th><input type="text" value="2"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td>Mark</td>
+                                                                    <td>Otto</td>
+                                                                    <td>@mdo</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">2</th>
+                                                                    <td>Jacob</td>
+                                                                    <td>Thornton</td>
+                                                                    <td>@fat</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">3</th>
+                                                                    <td colspan="2">Larry the Bird</td>
+                                                                    <td>@twitter</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <button type="submit"
+                                                            class="btn btn-primary float">Solve</button>
+
+                                                    </form>
+                                                </div>
+                                                <br>
+
+
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- sdssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss -->
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

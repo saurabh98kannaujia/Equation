@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <style>
+        .frm{
+            padding:1%;
+            margin: 1%;
+            float: right;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="frm" action="{{ url_for('logout') }}" method="post">
+        <label>{{session['username']}}</label>
+        <input class="btn btn-danger float" style="width: 35%;" type="submit" value="logout">
+    </form>
+
+
+    <div class="container">
+
+        <!-- Linear Equation -->
+        <div class="cards">
+            <div class="card">
+
+                <h1 class="card_cat">Linear
+                    Equation ==> ax + by= c </h1>
+
+                <div class="card_img">
+                    <form action="/res" method="POST">
+                        <input type="text" value="1" name="main_id" hidden>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="number" required name="a_value" id="a_value">
+                                </td>
+                                <td>
+                                    <label> x+</label>
+                                </td>
+                                <td>
+                                    <input type="number" required id="b_value" name="b_value">
+                                </td>
+                                <td>
+                                    <label> y =</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="c_value">
+                                </td>
+                                <td>
+                                    <label> c</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" required name="a1" id="a1">
+                                </td>
+                                <td>
+                                    <label> x+</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="b1">
+                                </td>
+                                <td>
+                                    <label> y =</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="c1">
+                                </td>
+                                <td>
+                                    <label> z</label>
+                                </td>
+                            </tr>
+                        </table>
+
+                </div>
+
+                <div class="card_info">
+
+                    <button type="submit" class="btn btn-primary float">Solve</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Linear Equation 2 -->
+        <div class="cards">
+            <div class="card">
+
+                <h1 class="card_cat">Linear
+                    Equation ==> ax + by + cz = d </h1>
+
+                <div class="card_img">
+                    <form action="/res" method="POST">
+                        <input type="text" value="2" name="main_id" hidden>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="number" required name="a1" id="a1">
+                                </td>
+                                <td>
+                                    <label> x+</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="b1">
+                                </td>
+                                <td>
+                                    <label> y +</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="c1">
+                                </td>
+                                <td>
+                                    <label> z =</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="d1">
+                                </td>
+                                <td>
+                                    <label> d</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" required name="a2" id="a2">
+                                </td>
+                                <td>
+                                    <label> x+</label>
+                                </td>
+
+                                <td>
+                                    <input type="number" required name="b2">
+                                </td>
+                                <td>
+                                    <label> y =</label>
+                                </td>
+
+                                <td>
+                                    <input type="number" required name="c2">
+                                </td>
+                                <td>
+                                    <label> z +</label>
+                                </td>
+
+                                <td>
+                                    <input type="number" required name="d2">
+                                </td>
+                                <td>
+                                    <label> d</label>
+                                </td>
+                            </tr>
+                        </table>
+
+                </div>
+
+                <div class="card_info">
+
+                    <button type="submit" class="btn btn-primary float">Solve</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Quadratic Equations -->
+        <div class="cards">
+            <div class="card">
+
+                <h1 class="card_cat">Quadratic Equation == >
+                    ax<sup>2</sup> + bx + c = 0 </h1>
+
+                <div class="card_img">
+                    <form action="/res" method="POST">
+                        <input type="text" value="3" name="main_id" hidden>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="number" required name="a" id="a">
+                                </td>
+                                <td>
+                                    <label>x<sup>2</sup> +</label>
+                                </td>
+                                <td>
+                                    <input type="number" required id="b" name="b">
+                                </td>
+                                <td>
+                                    <label>x +</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="c">
+                                </td>
+                                <td>
+                                    <label>c = 0</label>
+                                </td>
+                            </tr>
+                        </table>
+
+                </div>
+
+                <div class="card_info">
+
+                    <button type="submit" class="btn btn-primary float">Solve</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Matrix Addtion -->
+        <div class="cards">
+            <div class="card" style="padding-left: 5%;">
+
+                <h1 class="card_cat">Matrix Addition </h1>
+
+                <div class="card_img">
+                    <form action="/mat_draw" method="POST">
+                        <input type="text" name="mat_draw" value="matrix_add" hidden>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label> Rows:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="r">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> Column:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="c">
+                                </td>
+                            </tr>
+
+
+
+                        </table>
+
+
+
+
+                </div>
+
+                <div class="card_info">
+
+                    <button type="submit" class="btn btn-primary float">Solve</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Matrix Mutliplication -->
+        <div class="cards">
+            <div class="card" style="padding-left: 5%;">
+
+                <h1 class="card_cat">Matrix Mutliplication </h1>
+
+                <div class="card_img">
+                    <form action="/mat_draw" method="POST">
+                        <input type="text" name="mat_draw" value="matrix_mul" hidden>
+                        Table 1
+                        <table>
+                            <tr>
+                                <td>
+                                    <label> Rows:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="r1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> Column:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required class="c1" onchange="sync()" name="c1" id="c1">
+                                </td>
+                            </tr>
+                        </table>
+
+                        Table 2
+                        <table>
+                            <tr>
+                                <td>
+                                    <label> Rows:</label>
+                                </td>
+                                <td>
+                                    <input type="number" id="r2" name="r2" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> Column:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="c2">
+                                </td>
+                            </tr>
+                        </table>
+
+                </div>
+
+                <div class="card_info">
+
+                    <button type="submit" class="btn btn-primary float">Solve</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Matrix Inverse -->
+        <div class="cards">
+            <div class="card" style="padding-left: 5%;">
+
+                <h1 class="card_cat">Matrix Inverse </h1>
+
+                <div class="card_img">
+                    <form action="/mat_draw" method="POST">
+                        <input type="text" name="mat_draw" value="matrix_inv" hidden>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label> Rows:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required onchange="sync1()" id="r" name="r">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> Column:</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="c" id="c" disabled>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-primary float">Solve</button>
+                    </form>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- Matrix Transpose -->
+        <div class="cards">
+            <div class="card" style="padding-left: 5%;">
+
+                <h1 class="card_cat">Matrix Transpose </h1>
+
+                <div class="card_img">
+                    <form action="/mat_transpose" method="POST">
+                        <input type="text" name="mat_draw" value="mat_transpose" hidden>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label> Rows:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="r">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> Column:</label>
+                                </td>
+                                <td>
+                                    <input type="number" required name="c">
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+
+                <div class="card_info">
+
+                    <button type="submit" class="btn btn-primary float">Solve</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Matrix Determinent -->
+        <div class="cards">
+            <div class="card" style="padding-left: 5%;">
+
+                <h1 class="card_cat">Matrix Determinent </h1>
+                <span style="color: red;">
+
+                    {% block content %}
+                    {% if matrix_d == "matrix_det" %}
+                    {{err}}
+                    {% endif %}
+                    {% endblock content %}
+                </span>
+                <div class="card_img">
+                    <form action="/mat_det_draw" method="POST">
+                        <input type="text" name="mat_draw" value="matrix_det" hidden>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label> Rows:</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="r" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> Column:</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="c" required>
+                                </td>
+                            </tr>
+
+
+
+                        </table>
+
+
+
+
+                </div>
+
+                <div class="card_info">
+
+                    <button type="submit" onclick="det()" class="btn btn-primary float">Solve</button>
+                    </form>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- Armstrong Number -->
+        <div class="cards">
+            <div class="card" style="padding-left: 5%;">
+
+                <h1 class="card_cat">Check Number is Armstrong or Not </h1>
+
+                <div class="card_img">
+
+                    <input type="number" style="width: 50%;" size="10" required id="arm_num" name="arm_num">
+
+
+                </div>
+                <button type="submit" class="btn btn-primary float" onclick="armstrong_num()">Check</button>
+
+            </div>
+        </div>
+
+        <!-- Prime Number -->
+        <div class="cards">
+            <div class="card" style="padding-left: 5%;">
+
+                <h1 class="card_cat">Check Number is Prime or Not </h1>
+
+                <div class="card_img">
+
+                    <input type="number" style="width: 50%;" size="10" required id="prime_num" name="prime_num">
+
+
+                </div>
+                <button type="submit" class="btn btn-primary float" onclick="primenumber()">Check</button>
+
+            </div>
+        </div>
+
+
+
+        <script>
+
+            function primenumber() {
+
+                number = Number(document.getElementById('prime_num').value);
+                var isPrime = 1;
+                if (number == 1) {
+                    window.alert(number + " is niether Prime nor Composite Number..!")
+                }
+
+                else if (number > 1) {
+                    for (var i = 2; i < number; i++) {
+                        if (number % i == 0) {
+                            isPrime = 0;
+                            break;
+                        }
+                    }
+
+                    if (isPrime) {
+                        window.alert(number + "  is a prime number.");
+                    }
+                    else {
+                        window.alert(number + "  is not a prime number.");
+                    }
+                }
+                else {
+                    window.alert("PLease enter positive number");
+                }
+            }
+
+            function armstrong_num() {
+
+                var flag, number, remainder, addition = 0;
+                number = Number(document.getElementById('arm_num').value);
+
+                flag = number;
+                while (number > 0) {
+                    remainder = number % 10;
+                    addition = addition + remainder * remainder * remainder;
+                    number = parseInt(number / 10);
+                }
+
+                if (addition == flag) {
+                    window.alert(flag + " is Armstrong");
+                }
+                else {
+                    window.alert(flag + " is not a Armstrong");
+                }
+
+            }
+
+
+
+            function sync() {
+                var n1 = document.getElementById('c1');
+                var n2 = document.getElementById('r2');
+                n2.value = n1.value;
+            }
+            function sync1() {
+                var n1 = document.getElementById('r');
+                var n2 = document.getElementById('c');
+                n2.value = n1.value;
+            }
+        </script>
+
+</body>
+
+</html>

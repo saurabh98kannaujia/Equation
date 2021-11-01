@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        table td {
+
+            height: 50px;
+            width: 50px;
+            padding: 5px;
+        }
+
+        input {
+            resize: horizontal;
+            width: 50px;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            /* background-color: #fff2ff; */
+
+        }
+
+        .cards {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+
+
+        }
+
+        .card {
+
+            padding: 20px;
+            margin: 0 28%;
+            background-color: #fff;
+            width: 50%;
+            border-radius: 12px;
+            float: left;
+            box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+        }
+
+        @media screen and (max-width: 900px) {
+            .card {
+                margin: 0 25%;
+                background-color: #fff;
+                width: 90%;
+                border-radius: 12px;
+                float: left;
+                box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+            }
+        }
+
+        .card:hover {
+            box-shadow: 0px 30px 18px -8px rgba(0.3, 0.3, 0.3, 0.2);
+
+        }
+
+
+        .card_img {
+            width: 100%;
+            background-color: #fff;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="cards">
+        <div class="card">
+
+
+
+            <div class="card_img">
+
+                {% block content %}
+                {% if matrix_d == "matrix_add" %}
+
+                <form action="/mat_res" method="POST">
+                    <input type="text" value="mat_add" name="main_id" hidden>
+                    <input type="text" value={{r}} name="r" hidden>
+                    <input type="text" value={{c}} name="c" hidden>
+
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col">
+                                <h1>Matrix 1</h1>
+                                <table class="a">
+                                    {% for i in range (r) %}
+                                    <tr>
+                                        {% for j in range(c) %}
+                                        <td>
+
+                                            <input class="input" type="number" required size="4" name={{a}}{{ i }}{{ j }}>
+
+                                        </td>
+
+                                        {% endfor %}
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </table>
+                            </div>
+
+                            <div class="col">
+                                <h1>Matrix 2</h1>
+                                <table class="a">
+                                    {% for i in range (r) %}
+                                    <tr>
+                                        {% for j in range(c) %}
+                                        <td>
+
+                                            <input class="input" type="number" required size="2" name={{b}}{{ i }}{{ j }}>
+
+                                        </td>
+
+                                        {% endfor %}
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </table>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary float">Solve</button>
+                    </div>
+
+                </form>
+
+                {% elif matrix_d == "matrix_mul" %}
+                <form action="/mat_mul" method="POST">
+                    <input type="text" value="mat_add" name="main_id" hidden>
+                    <input type="text" value={{r1}} name="r1" hidden>
+                    <input type="text" value={{c1}} name="c1" hidden>
+                    <input type="text" value={{c1}} name="r2" hidden>
+                    <input type="text" value={{c2}} name="c2" hidden>
+
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col">
+                                <h1>Matrix 1</h1>
+                                <table class="a">
+                                    {% for i in range (r1) %}
+                                    <tr>
+                                        {% for j in range(c1) %}
+                                        <td>
+
+                                            <input class="input" type="number" required size="4" name={{a}}{{ i }}{{ j }}>
+
+                                        </td>
+
+                                        {% endfor %}
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </table>
+                            </div>
+
+                            <div class="col">
+                                <h1>Matrix 2</h1>
+                                <table class="a">
+                                    {% for i in range (c1) %}
+                                    <tr>
+                                        {% for j in range(c2) %}
+                                        <td>
+
+                                            <input class="input" type="number" required size="2" name={{b}}{{ i }}{{ j }}>
+
+                                        </td>
+
+                                        {% endfor %}
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </table>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary float">Solve</button>
+                    </div>
+
+                </form>
+
+
+                {% elif matrix_d == "matrix_inv" %}
+                <form action="/mat_inv" method="POST">
+                    <input type="text" value="mat_inv" name="main_id" hidden>
+                    <input type="text" value={{r}} name="r" hidden>
+                    <input type="text" value={{c}} name="c" hidden>
+
+                    <div class="container">
+
+                        <div className="cards">
+                            <div className="card">
+                                <h1>Matrix</h1>
+                                <table class="a">
+                                    {% for i in range (r) %}
+                                    <tr>
+                                        {% for j in range(c) %}
+                                        <td>
+
+                                            <input class="input" type="number" required size="4" name={{a}}{{ i }}{{ j }}>
+
+                                        </td>
+
+                                        {% endfor %}
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </table>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary float">Solve</button>
+                        </div>
+                    </div>
+
+
+                </form>
+
+                {% elif matrix_d == "mat_transpose" %}
+                <form action="/mat_transpose_ans" method="POST">
+                    <input type="text" value="mat_transpose" name="main_id" hidden>
+                    <input type="text" value={{r}} name="r" hidden>
+                    <input type="text" value={{c}} name="c" hidden>
+
+                    <div class="container">
+
+                        <div className="cards">
+                            <div className="card">
+                                <h1>Matrix</h1>
+                                <table class="a">
+                                    {% for i in range (r) %}
+                                    <tr>
+                                        {% for j in range(c) %}
+                                        <td>
+
+                                            <input class="input" type="number" required size="4" name={{a}}{{ i }}{{ j }} >
+
+                                        </td>
+
+                                        {% endfor %}
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </table>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary float">Solve</button>
+                        </div>
+                    </div>
+
+
+                </form>
+
+                {% elif matrix_d == "matrix_det" %}
+                <form action="/mat_det" method="POST">
+                    <input type="text" value="mat_transpose" name="main_id" hidden>
+                    <input type="text" value={{r}} name="r" hidden>
+                    <input type="text" value={{c}} name="c" hidden>
+
+                    <div class="container">
+
+                        <div className="cards">
+                            <div className="card">
+                                <h1>Matrix</h1>
+                                <table class="a">
+                                    {% for i in range (r) %}
+                                    <tr>
+                                        {% for j in range(c) %}
+                                        <td>
+
+                                            <input class="input" type="number" required size="4" name={{a}}{{ i }}{{ j }} >
+
+                                        </td>
+
+                                        {% endfor %}
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </table>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary float">Solve</button>
+                        </div>
+                    </div>
+
+                </form>
+
+
+
+                {% endif %}
+                {% endblock content %}
+
+
+                <div class="card_info">
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+@app.route("/res", methods = ["POST","GET"])
+def res():
+    if request.method == "POST":
+        main_id = request.form['main_id']
+        if main_id == "1":
+            a1 = int(request.form['a_value'])
+            b1 = int(request.form['b_value'])
+            c1 = int(request.form['c_value'])
+
+            a2 = int(request.form['a1'])
+            b2 = int(request.form['b1'])
+            c2 = int(request.form['c1'])
+            if(a1 == a2 and b1==b2 and c1==c2):
+                a = "No result"
+                return render_template ("res.html",x = a,y =a)
+            else:
+                Inv = np.array(
+                    [
+                        [a1,b1],
+                        [a2,b2]
+                    ]
+                )
+                X = (np.linalg.inv(Inv)).tolist()
+
+                Y  = [[c1],[c2]]
+                result = [[0],
+                [0]]
+
+                # iterate through rows of X
+                for i in range(len(X)):
+                # iterate through columns of Y
+                    for j in range(len(Y[0])):
+                    # iterate through rows of Y
+                        for k in range(len(Y)):
+                            result[i][j] += X[i][k] * Y[k][j]
+
+                print(result)
+                # for r in result:
+                #     print(r)
+                print()
+                m =float("".join(map(str,result[0])))
+                n =float("".join(map(str,result[1])))
+                y = "{:.2f}".format(n)
+                x = "{:.2f}".format(m)
+                return render_template ("res.html",x = x,y = y)
+
+        else:
+            a1 = int(request.form['a'])
+            b1 = int(request.form['b'])
+            c1 = int(request.form['c'])
+
+            a2 = int(request.form['a1'])
+            b2 = int(request.form['b1'])
+            c2 = int(request.form['c1'])
+
+            a3 = int(request.form['a2'])
+            b3 = int(request.form['b2'])
+            c3 = int(request.form['c2'])
+            if(a1 == a2==a3 and b1==b2==b3 and c1==c2==c3):
+                a = "No result"
+                return render_template ("res.html",x = a,y =a)
+            else:
+                Inv = np.array(
+                [
+                  [a1,b1],
+                  [a2,b2],
+                  [a3,b3]                  
+                ]
+                 )
+                X = (np.linalg.inv(Inv)).tolist()
+
+                Y  = [
+                      [c1],
+                      [c2],
+                      [c3]
+                    ]
+                result = [[0],
+                [0],[0]]
+
+                    # iterate through rows of X
+                for i in range(len(X)):
+                # iterate through columns of Y
+                    for j in range(len(Y[0])):
+                    # iterate through rows of Y
+                        for k in range(len(Y)):
+                            result[i][j] += X[i][k] * Y[k][j]
+
+                print(result)
+                # for r in result:
+                #     print(r)
+                print()
+                m =float("".join(map(str,result[0])))
+                n =float("".join(map(str,result[1])))
+                y = "{:.2f}".format(n)
+                x = "{:.2f}".format(m)
+                return render_template ("res.html",x = x,y = y)
+            
+
+'''
+
+
+
+@app.route("/")
+def index():
+    if 'username' in session:
+        return 'You are logged in as ' + session['username']
+
+    return render_template('index.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    users = mongo.db.users
+    login_user = users.find_one({'name' : request.form['username']})
+
+    if login_user:
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+
+    return 'Invalid username/password combination'
+
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'name' : request.form['username'], 'password' : hashpass})
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+        
+        return 'That username already exists!'
+
+    return render_template('register.html')
+

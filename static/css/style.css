@@ -1,0 +1,92 @@
+input {
+    resize: horizontal;
+    width:50px;
+}
+
+table td{
+            
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+}
+
+  *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* background-color: #fff2ff; */
+
+}
+.cards{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    
+    
+}
+.card_cat{
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    background-color: #fff;
+
+}
+.card{
+    padding: 2px;
+    margin: 1% 5%;
+    background-color: #fff;
+    width: 35%;
+    border-radius: 12px;
+    float: left;
+    box-shadow: 0px 13px 10px -7px rgba(0,0,0,0.1) ;
+    transition: all 0.4s cubic-bezier(0.175,0.885,0,1);
+}
+
+@media screen and (max-width: 900px) {
+    .card{
+        margin: 5% 5%;
+        background-color: #fff;
+        width: 90%;
+        border-radius: 12px;
+        float: left;
+        box-shadow: 0px 13px 10px -7px rgba(0,0,0,0.1) ;
+        transition: all 0.4s cubic-bezier(0.175,0.885,0,1);
+    }
+  }
+
+.card:hover{
+    box-shadow: 0px 30px 18px -8px rgba(0.3,0.3,0.3,0.2);
+
+}
+
+
+.card_img{
+    width: 100%;
+    background-color: #fff;
+    padding: 5px;
+   
+}
+
+.card_info{
+    background-color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 24px 24px 24px;
+
+}
+
+/* .card_cat{
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    background-color: #fff;
+
+} */
+
+.card_title{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+

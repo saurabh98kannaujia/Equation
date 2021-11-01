@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"> -->
+    <style>
+        table td {
+
+            height: 50px;
+            width: 50px;
+            padding: 5px;
+        }
+
+        input {
+            resize: horizontal;
+            width: 50px;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            /* background-color: #fff2ff; */
+
+        }
+
+        .cards {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+
+
+        }
+
+        .card {
+
+            padding: 20px;
+            margin: 0 28%;
+            background-color: #fff;
+            width: 50%;
+            border-radius: 12px;
+            float: left;
+            box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+        }
+
+        @media screen and (max-width: 900px) {
+            .card {
+                margin: 0 25%;
+                background-color: #fff;
+                width: 90%;
+                border-radius: 12px;
+                float: left;
+                box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+            }
+        }
+
+        .card:hover {
+            box-shadow: 0px 30px 18px -8px rgba(0.3, 0.3, 0.3, 0.2);
+
+        }
+
+
+        .card_img {
+            width: 100%;
+            background-color: #fff;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    {% block content %}
+    {% if l==2 %}
+    <div class="cards">
+        <div class="card" style="padding-left: 5%;">
+            <h1 class="card_cat">Linear Equation Answer </h1>
+            <table>
+                <tr>
+                    <td>
+                        x=
+                    </td>
+                    <td>
+                        {{res[0]}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        y =
+                    </td>
+                    <td>
+                        {{res[1]}}
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+    {% elif l==3: %}
+    <div class="cards">
+        <div class="card" style="padding-left: 5%;">
+            <h1 class="card_cat">Linear Equation Answer </h1>
+            <table>
+                <tr>
+                    <td>
+                        x=
+                    </td>
+                    <td>
+                        {{res[0]}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        y =
+                    </td>
+                    <td>
+                        {{res[1]}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        z =
+                    </td>
+                    <td>
+                        {{res[2]}}
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+
+    {% elif l==4: %}
+    <div class="cards">
+        <div class="card" style="padding-left: 5%;">
+            <h1 class="card_cat">Quadratic Equation Answer </h1>
+            <table>
+                <tr>
+                    <td>
+                        x1 =
+                    </td>
+                    <td>
+                        {{res[0]}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        x2 =
+                    </td>
+                    <td>
+                        {{res[1]}}
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+
+    {% elif l=="mat_add": %}
+    <div class="cards">
+        <div class="card" style="padding-left: 5%;">
+
+            <h1 class="card_cat">Matrix </h1>
+
+            <div class="card_img">
+                <table class="a">
+                    {% for i in range(le1) %}
+                    <tr>
+                        {% for j in range(le) %}
+                        <td>
+
+                            <input type="text" value={{res1[i][j]}} disabled>
+
+                        </td>
+
+                        {% endfor %}
+
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    {% elif l=="mat_mul": %}
+    <div class="container">
+        <div class="col">
+            <h1>Matrix Result</h1>
+            <table class="a">
+                {% for i in range(le1) %}
+                <tr>
+                    {% for j in range(le) %}
+                    <td>
+
+                        <input type="text" value={{res1[i][j]}} disabled>
+
+                    </td>
+
+                    {% endfor %}
+
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+
+
+    </div>
+
+    {% elif l=="mat_inv": %}
+    <div class="container">
+        <div class="col">
+            <h1>Matrix Result</h1>
+            <table class="a">
+                {% for i in range(le1) %}
+                <tr>
+                    {% for j in range(le) %}
+                    <td>
+
+                        <input type="text" value={{res1[i][j]}} disabled>
+
+                    </td>
+
+                    {% endfor %}
+
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+
+
+    </div>
+
+    {% elif l=="mat_transpose": %}
+    <div class="container">
+        <div class="col">
+            <h1>Matrix Result</h1>
+            <table class="a">
+                {% for i in range(le1) %}
+                <tr>
+                    {% for j in range(le) %}
+                    <td>
+
+                        <input type="text" value={{res1[i][j]}} disabled>
+
+                    </td>
+
+                    {% endfor %}
+
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+
+
+    </div>
+
+    {% elif l=="mat_det": %}
+    <div class="container">
+        <div class="col">
+            <h1>Matrix Result</h1>
+            <table class="a">
+                <tr>
+                    <td>Determinent:</td>
+                    <td>{{res1}}</td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+    {% endif %}
+    {% endblock content %}
+
+
+
+</body>
+
+</html>
